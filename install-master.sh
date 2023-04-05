@@ -29,7 +29,7 @@ function installDocker {
     stable"
 
   ## Install Docker CE.
-  apt-get update && apt-get install -y docker-ce=18.06.2~ce~3-0~ubuntu
+  apt-get update && apt-get install -y docker.io
 
   # Setup daemon.
   cat > /etc/docker/daemon.json <<EOF
@@ -90,8 +90,7 @@ deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
   sudo mv kubernetes.list /etc/apt/sources.list.d/
   sudo apt-get update
-  export K8S_VERSION=1.16.7-00
-  sudo apt-get install -y kubelet=$K8S_VERSION kubeadm=$K8S_VERSION kubectl=$K8S_VERSION
+  sudo apt-get install -y kubelet kubeadm= kubectl
   sudo apt-mark hold kubelet kubeadm kubectl
 
   # Creating a single control-plane cluster with kubeadm
